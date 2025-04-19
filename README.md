@@ -1,3 +1,3 @@
-# https---github.com-Saswata7387-hyperloopin-club-console
+hyperloopin-club-console
 
 # club console 
