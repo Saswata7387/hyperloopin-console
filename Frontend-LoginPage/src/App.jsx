@@ -1,7 +1,20 @@
 import SocialLogin from "./components/SocialLogin";
 import InputField from "./components/InputField";
+import { useState } from "react";
 
 const App = () => {
+  const [email, setEmail] = useState("test@example.com"); // Mock email
+  const [password, setPassword] = useState("password123"); // Mock password
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (email === "test@example.com" && password === "password123") {
+      alert("Login successful!");
+    } else {
+      alert("Invalid email or password.");
+    }
+  };
+
   return (
     <div className="app-container">
       {/* Add the rectangle photo */}
@@ -13,9 +26,21 @@ const App = () => {
         <h2 className="form-title">Log in</h2>
         <SocialLogin />
         <p className="separator"></p>
-        <form action="#" className="login-form">
-          <InputField type="email" placeholder="Email address" icon="mail" />
-          <InputField type="password" placeholder="Password" icon="lock" />
+        <form action="#" className="login-form" onSubmit={handleSubmit}>
+          <InputField
+            type="email"
+            placeholder="Email address"
+            icon="mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <InputField
+            type="password"
+            placeholder="Password"
+            icon="lock"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <a href="#" className="forgot-password-link">Forgot password?</a>
           <button type="submit" className="login-button">Log In</button>
         </form>
